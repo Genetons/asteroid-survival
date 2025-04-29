@@ -1,0 +1,31 @@
+extends RigidBody2D
+
+@export var thrust_force: float = 100.0
+@export var gravitational_constant: float = 1000.0
+
+var gravity_sources := []
+
+func _ready():
+    set_process(true)
+
+func _physics_process(delta):
+    apply_gravity(delta)
+    handle_input()
+
+func apply_gravity(delta):
+    for source in gravity_sources:
+        var direction = source.global_position - global_position
+        var distance_squared = direction.length_squared()
+        if distance_squared == 0:
+            continue
+        var force_magnitude = gravitational_constant * (mass * source.mass) / distance_squared
+        var force = direction.normalized() * force_magnitude
+        apply_central_force(force)
+
+func handle_input():
+    if Input.is_action_pressed("ui_up"):
+        apply_central_impulse(Vector2.UP.rotated(rotation) * thrust_force)
+    if Input.is_action_pressed("ui_left"):
+        apply_torque_impulse(-5)
+    if Input.is_action_pressed("ui_right"):
+        apply_torque_impulse(5)
