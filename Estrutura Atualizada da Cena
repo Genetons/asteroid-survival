@@ -1,0 +1,6 @@
+Main (Node2D)
+├── Asteroid (RigidBody2D)
+├── Planet (Area2D, com escudo opcional)
+├── BlackHole (Area2D)
+│   └── Sprite + ShaderMaterial
+└── Camera2D
