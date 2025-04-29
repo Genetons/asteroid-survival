@@ -1,0 +1,7 @@
+Main (Node2D)
+├── Asteroid (RigidBody2D)
+│   └── Sprite
+├── Planet (Area2D)
+│   └── Sprite
+│   └── CollisionShape2D
+└── Camera2D
