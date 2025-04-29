@@ -1,0 +1,17 @@
+GravitonDrift/
+├── scenes/
+│   ├── Main.tscn
+│   ├── Asteroid.tscn
+│   ├── PlanetWithShield.tscn
+│   └── BlackHole.tscn
+├── scripts/
+│   ├── Asteroid.gd
+│   ├── PlanetWithShield.gd
+│   └── BlackHole.gd
+├── shaders/
+│   └── blackhole_distortion.shader
+├── assets/
+│   ├── asteroid.png
+│   ├── planet.png
+│   └── blackhole.png
+└── project.godot
