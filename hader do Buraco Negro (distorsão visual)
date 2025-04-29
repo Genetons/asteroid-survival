@@ -1,0 +1,15 @@
+shader_type canvas_item;
+
+uniform float strength = 0.02;
+uniform float radius = 100.0;
+
+void fragment() {
+    vec2 center = vec2(0.5);
+    vec2 dir = UV - center;
+    float dist = length(dir);
+    if (dist < radius / 500.0) {
+        float factor = (radius / 500.0 - dist) * strength;
+        UV -= normalize(dir) * factor;
+    }
+    COLOR = texture(TEXTURE, UV);
+}
